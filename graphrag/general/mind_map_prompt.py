@@ -13,6 +13,12 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
+# 思维导图提取提示模板
+# 该模板用于将文本内容转换为思维导图格式
+# 通过分析文本内容，生成标题、主要部分和子部分
+# 模板指导LLM将复杂内容分解为层次结构
+# 输出为markdown格式的思维导图，包含至少4个层级
+# 主要用于文档内容的结构化展示和知识组织
 
 MIND_MAP_EXTRACTION_PROMPT = """
 - Role: You're a talent text processor to summarize a piece of text into a mind map.

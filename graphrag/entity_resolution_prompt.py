@@ -13,7 +13,12 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
-
+# 实体解析提示模板
+# 该模板用于确定两个实体是否指代同一事物
+# 通过分析实体的关键属性，忽略噪声因素，判断实体是否相同
+# 模板包含示例和格式化输出指南，帮助LLM理解任务要求
+# 输出格式为带有特定分隔符的列表，包含每个问题的答案
+# 主要用于图谱构建过程中的实体消歧和合并
 ENTITY_RESOLUTION_PROMPT = """
 -Goal-
 Please answer the following Question as required

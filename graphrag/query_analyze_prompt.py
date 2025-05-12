@@ -6,6 +6,12 @@ Reference:
 """
 PROMPTS = {}
 
+# 这是一个用于查询分析的提示模板，主要功能是识别用户查询中的答案类型关键词和实体关键词
+# 答案类型关键词从预定义的类型池中选择，表示查询期望的答案类型
+# 实体关键词则是从用户查询中提取的具体实体或详细信息
+# 输出格式为JSON，包含两个主要字段：
+# - answer_type_keywords：最可能的答案类型，按可能性排序，不超过3个
+# - entities_from_query：从查询中提取的具体实体或详细信息
 PROMPTS["minirag_query2kwd"] = """---Role---
 
 You are a helpful assistant tasked with identifying both answer-type and low-level keywords in the user's query.
@@ -154,6 +160,12 @@ Output:
 
 """
 
+# 关键词提取提示模板
+# 该模板定义了一个AI助手的角色，用于从用户查询中识别高级和低级关键词
+# 高级关键词关注宏观概念或主题，而低级关键词关注具体实体、细节或具体术语
+# 输出格式为JSON，包含两个键："high_level_keywords"和"low_level_keywords"
+# 模板包含示例部分，帮助AI理解任务要求，以及实际数据部分，用于处理用户的实际查询
+# 最后提醒AI输出应为人类可读文本，而非Unicode字符，并保持与查询相同的语言
 PROMPTS["keywords_extraction"] = """---Role---
 
 You are a helpful assistant tasked with identifying both high-level and low-level keywords in the user's query.
@@ -184,6 +196,11 @@ Output:
 
 """
 
+# 关键词提取示例
+# 示例1展示了如何从国际贸易问题中提取高级概念（如国际贸易、全球经济稳定性）和低级关键词（如贸易协定、关税）
+# 示例2展示了环境问题相关的关键词提取，包括高级概念（环境后果、森林砍伐）和具体实体（物种灭绝、栖息地破坏）
+# 示例3关注教育与减贫的关系，提取了高级主题（教育、减贫）和具体方面（学校获取、识字率）
+# 这些示例帮助模型理解如何将查询分解为概念性关键词和具体实体，以便更好地进行信息检索和分析
 PROMPTS["keywords_extraction_examples"] = [
     """Example 1:
 
